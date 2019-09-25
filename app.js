@@ -3,6 +3,7 @@ const quiz = document.getElementById('quiz');
 const question = document.getElementById('question');
 const counter = document.getElementById('counter');
 const timerBar = document.getElementById('timerBar');
+const timerProgress = document.getElementById('timerProgress');
 
 const choiceA = document.getElementById('A');
 const choiceB = document.getElementById('B');
@@ -33,7 +34,7 @@ let questions = [
     {
         question : "Which is the only mammal that can't jump?",
         choiceA : "Sloth",
-        choiceB : "Leapord",
+        choiceB : "Leopard",
         choiceC : "Polar Bear",
         choiceD : "Elephant",
         correct: "D"
@@ -48,7 +49,7 @@ let questions = [
     },
 
     {
-        question : "How many dots does a dice have?",
+        question : "How many dots does two a dice have?",
         choiceA : "50",
         choiceB : "42",
         choiceC : "44",
@@ -91,7 +92,7 @@ startQuiz.addEventListener('click', startGame)
 nextQuestion = () => {
     if (count <= questionTime) {
         counter.innerHTML = count;
-        timerBar.style.width = count * barUnit + "px";
+        timerProgress.style.width = count * barUnit + "px";
         count++;
     } else {
         count = 0
@@ -110,9 +111,11 @@ checkAnswer = (answer) => {
     if (answer == questions[runningQuestion].correct){
         score++
         console.log(score)
-        progress.innerHTML = "<p>" +score+ " / 5 </p>"
-        progress.innerHTML = "<p>" +score+ " / 5 </p>"
-    } 
+        progress.innerHTML = "<p>Score: " +score+ " / 5 </p>"
+        // progress.innerHTML = "<p>" +score+ " / 5 </p>"
+    } else if (answer != questions[runningQuestion].correct){
+        progress.innerHTML = "<p>Score: " +score+ " / 5 </p>"
+    }
 
     count = 0;
     if( runningQuestion < lastQuestion){
@@ -129,6 +132,18 @@ checkAnswer = (answer) => {
 finalScore = () => {
     quiz.style.display = "none";
     scoreContainer.style.display = "block";
+    restart.style.display = "block";
     scoreContainer.innerHTML = "<p> You scored : </p>"
     scoreContainer.innerHTML += "<p>"+ score + "/ 5</p>"
+}
+
+playAgain = () => {
+    scoreContainer.style.display = "none";
+    quiz.style.display = "block";
+    restart.style.display = "none";  
+    runningQuestion = 0;
+    score = 0;
+    
+    startGame()
+    
 }

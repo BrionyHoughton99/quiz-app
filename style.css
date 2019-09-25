@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700&display=swap');
+
+html, body{
+    height: 100vh;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+#startQuiz{
+    font-size: 3vw;
+    text-align: center;
+    margin: 30vh
+    
+}
+
+#container{
+    height: 100vh;
+    text-align: center;
+    margin: 30vh
+}
+
+#choices {
+   
+
+}
+
+#questions {
+    font-family: 'Noto Sans TC', sans-serif;
+    text-align: center;
+    
+}
+
 #timer{
     position: absolute;
     height : 100px;
@@ -8,17 +38,17 @@
 #counter{
     font-size: 3em;
 }
-#timerBar{
+ #timerBar{
     width : 150px;
     height : 10px;
-    border-radius: 10px;
-    background-color: lightgray;
-    margin-left : 25px;
+    border-radius: 80px;
+    border: 2px solid rgb(187, 92, 187);
+    margin-left : 25px; 
 }
 #timerProgress {
     height : 10px;
     border-radius: 10px;
-    background-color: mediumseagreen;
-    margin-top : -10px;
+    background-color: rgb(187, 92, 187);
+    margin-top : -12px;
     margin-left : 25px;
 }
